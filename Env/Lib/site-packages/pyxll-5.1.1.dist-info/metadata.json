@@ -1,0 +1,23 @@
+{
+    "generator": "pyxll_makewheel",
+    "summary": "Write Microsoft Excel Add-Ins in Python",
+    "extensions": {
+        "python.details": {
+            "project_urls": {
+                "Home": "https://www.pyxll.com"
+            },
+            "contacts": [{
+                "email": "info@pyxll.com",
+                "name": "PyXLL Ltd",
+                "role": "author"
+            }],
+            "document_names": {
+                "description": "DESCRIPTION.rst"
+            }
+        }
+    },
+    "license": "Commercial",
+    "metadata_version": "2.0",
+    "name": "PyXLL",
+    "version": "5.1.1"
+}

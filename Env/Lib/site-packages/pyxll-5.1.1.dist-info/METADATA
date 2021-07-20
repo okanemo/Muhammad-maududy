@@ -1,0 +1,110 @@
+Metadata-Version: 2.1
+Name: pyxll
+Version: 5.1.1
+Summary: Write Microsoft Excel Add-Ins in Python
+Home-page: https://www.pyxll.com
+Author: PyXLL Ltd
+Author-email: info@pyxll.com
+License: Other/Proprietary License
+Platform: Windows
+Classifier: Development Status :: 6 - Mature
+Classifier: Environment :: Win32 (MS Windows)
+Classifier: License :: Other/Proprietary License
+Classifier: Natural Language :: English
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Office/Business :: Office Suites
+
+.. -*- mode: rst; ispell-local-dictionary: "en" -*-
+
+.. $Id:$
+
+
+Write Microsoft Excel Addins in Python
+======================================
+
+With PyXLL you can use Microsoft Excel as a user friendly front-end to your
+Python code. No VBA, just Python!
+
+- **Worksheet Functions (UDFs)**: Call your Python functions directly from Excel.
+- **Real Time Data**: Stream real time data feeds from Python to Excel.
+- **Macros**: Replace VBA code with Python.
+- **Menus and Toolbars**: Add your own menus and ribbon toolbars to Excel.
+
+PyXLL is a high performance and easy to use Python integration solution for Microsoft Excel.
+
+For more details visit https://www.pyxll.com.
+
+Installation
+============
+
+**To use PyXLL the PyXLL Excel add-in needs to be installed.**
+
+Download the PyXLL Excel add-in from https://www.pyxll.com/download.html and
+see https://www.pyxll.com/docs/userguide/installation.html for detailed installation instructions.
+
+This wheel contains the Python code needed to import the PyXLL module during development and
+testing, but it *not* needed when your code is running in Excel using the PyXLL add-in.
+
+To install this package from *pypi* run ``pip install pyxll``.
+
+Features
+========
+
+For complete documentation and example code see the website https://www.pyxll.com.
+
+Call Python Functions From Excel
+--------------------------------
+
+Expose your analytics or modelling functions directly to Excel users. Any Python
+function can be turned into an Excel worksheet function, or User Defined Function (UDF).
+
+- Interactive modelling, analysis and ad-hoc calculations
+- Build dashboards using Python functions
+- Source data from your existing systems
+- Faster calculation times than VBA
+
+Macros, Menus and Ribbon Tabs
+-----------------------------
+
+Automate Excel using macros, menu items, custom ribbon tabs and context menus, entirely in Python.
+
+- Use Excel instead of building your own UI
+- Bind macros to on-sheet buttons and other elements
+- Full control of the ribbon with Python actions
+- No VBA required, automate Excel with Python
+
+Real Time Data
+--------------
+
+Stream live market data into your spreadsheets in real-time.
+
+- Make auto-updating dashboards with live data
+- Source real time data from anywhere with Python
+- Use Python's asyncio event loop or your own threads
+- No complicated setup required
+
+Lightning Fast Object Cache
+---------------------------
+
+Pass Python objects directly between Excel worksheet functions for cleaner and faster workbooks.
+
+- No need to always expand large arrays in Excel
+- Reduce spreadsheet clutter by returning objects in a single cell
+- Pass returned Python objects to other Python functions
+- Avoid time wasted reconstructing objects
+
+Frictionless Developer Experience
+---------------------------------
+
+Use any Python distribution (including Anaconda) and your preferred Python IDE or editor.
+
+- All code is external to Excel so is easily managed and deployed
+- Debugging support for all major Python IDEs
+- Reload automatically or manually, without restarting Excel
+- Code can be run and tested outside of Excel
+
+For more details see https://www.pyxll.com/features.html.
+

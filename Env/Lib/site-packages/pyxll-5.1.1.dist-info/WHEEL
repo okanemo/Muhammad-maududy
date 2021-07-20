@@ -1,0 +1,4 @@
+Wheel-Version: 1.0
+Generator: pyxll_makewheel
+Root-Is-Purelib: true
+Tag: cp39-none-any
