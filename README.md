@@ -9,7 +9,7 @@ Technologies in use for making this app
 1. Django
 2. Python
 3. Java Script
-4. and other like html,css etc
+4. and other like html,css etc.
 
 Getting Started
 ------------
