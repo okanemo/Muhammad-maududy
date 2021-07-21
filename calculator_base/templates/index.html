@@ -1,19 +1,17 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
     <title>Home</title>
 </head>
 
 <body>
-    <!-- <img class="banner" src="{% static 'img/home.png' %}" alt=""> -->
     <div class="container">
+        <h1>{{tittle}}</h1>
         <table class="table">
             <thead>
                 <tr>
@@ -90,40 +88,10 @@
 
             </tbody>
         </table>
-
-
-        <!-- <div id="">
-            <label for="stock-price-UsdtUsdc">Price : </label>
-            <span>---</span>
-            <br>
-            <label for="">24h Change : </label>
-            <span>--</span>
-            <span>--</span>
-            <br>
-            <label for="">24h High : </label>
-            <span id="stock-changes-h-UsdtUsdc">--</span>
-            <br>
-            <label for="">24h Low : </label>
-            <span id="stock-changes-l-UsdtUsdc">--</span>
-        </div>
-        <div id="stock-price-BusdUsdt">---</div>
-        <div id="stock-price-UsdtBidr">---</div>
-        <div id="stock-price-EthUsdt">---</div>
-        <div id="stock-price-BtcUsdt">---</div>
-        <hr>
-        <div id="stock-ticker-BtcUsdt">---</div>
-        <div id="chart"></div>
-        <h2>settings</h2>
-        <div id="settings">
-            <input type="checkbox" name="" id=""> RSI
-            <input type="text" name="rsi_length" id="rsi_length" placeholder="14"> Over Bought
-            <input type="text" name="rsi_overbought" id="rsi_overbought" placeholder="70"> Over Sold
-            <input type="text" name="rsi_oversold" id="rsi_oversold" placeholder="30">
-        </div> -->
+        <id id="chart">
+            </canvas>
     </div>
-
-    <script src="{% static 'js/app.js' %}"></script>
-    <script src="{% static 'js/chart.js' %}"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 

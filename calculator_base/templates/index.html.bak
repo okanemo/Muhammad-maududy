@@ -1,0 +1,132 @@
+<!-- {% load static %} -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+    <title>Home</title>
+</head>
+
+<body>
+    <!-- <img class="banner" src="{% static 'img/home.png' %}" alt=""> -->
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Currency</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Change</th>
+                    <th scope="col">High</th>
+                    <th scope="col">Low</th>
+                    <th scope="col">Volume 1</th>
+                    <th scope="col">Volume 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">USDC/USDT</th>
+                    <td id="stock-price-UsdcUsdt">---</td>
+                    <td>
+                        <span id="stock-changes-p-UsdcUsdt">---</span>
+                        <span id="stock-changes-P-UsdcUsdt">---</span>
+                    </td>
+                    <td id="stock-changes-h-UsdcUsdt">---</td>
+                    <td id="stock-changes-l-UsdcUsdt">---</td>
+                    <td id="stock-changes-v-UsdcUsdt">---</td>
+                    <td id="stock-changes-q-UsdcUsdt">---</td>
+                </tr>
+                <tr>
+                    <th scope="row">BUSD/USDT</th>
+                    <td id="stock-price-BusdUsdt">---</td>
+                    <td>
+                        <span id="stock-changes-p-BusdUsdt">---</span>
+                        <span id="stock-changes-P-BusdUsdt">---</span>
+                    </td>
+                    <td id="stock-changes-h-BusdUsdt">---</td>
+                    <td id="stock-changes-l-BusdUsdt">---</td>
+                    <td id="stock-changes-v-BusdUsdt">---</td>
+                    <td id="stock-changes-q-BusdUsdt">---</td>
+                </tr>
+                <tr>
+                    <th scope="row">USDT/BIDR</th>
+                    <td id="stock-price-UsdtBidr">---</td>
+                    <td>
+                        <span id="stock-changes-p-UsdtBidr">---</span>
+                        <span id="stock-changes-P-UsdtBidr">---</span>
+                    </td>
+                    <td id="stock-changes-h-UsdtBidr">---</td>
+                    <td id="stock-changes-l-UsdtBidr">---</td>
+                    <td id="stock-changes-v-UsdtBidr">---</td>
+                    <td id="stock-changes-q-UsdtBidr">---</td>
+                </tr>
+                <tr>
+                    <th scope="row">ETH/USDT</th>
+                    <td id="stock-price-EthUsdt">---</td>
+                    <td>
+                        <span id="stock-changes-p-EthUsdt">---</span>
+                        <span id="stock-changes-P-EthUsdt">---</span>
+                    </td>
+                    <td id="stock-changes-h-EthUsdt">---</td>
+                    <td id="stock-changes-l-EthUsdt">---</td>
+                    <td id="stock-changes-v-EthUsdt">---</td>
+                    <td id="stock-changes-q-EthUsdt">---</td>
+                </tr>
+                <tr>
+                    <th scope="row">BTC/USDT</th>
+                    <td id="stock-price-BtcUsdt">---</td>
+                    <td>
+                        <span id="stock-changes-p-BtcUsdt">---</span>
+                        <span id="stock-changes-P-BtcUsdt">---</span>
+                    </td>
+                    <td id="stock-changes-h-BtcUsdt">---</td>
+                    <td id="stock-changes-l-BtcUsdt">---</td>
+                    <td id="stock-changes-v-BtcUsdt">---</td>
+                    <td id="stock-changes-q-BtcUsdt">---</td>
+                </tr>
+
+            </tbody>
+        </table>
+        <id id="chart">
+            </canvas>
+
+
+            <!-- <div id="">
+            <label for="stock-price-UsdtUsdc">Price : </label>
+            <span>---</span>
+            <br>
+            <label for="">24h Change : </label>
+            <span>--</span>
+            <span>--</span>
+            <br>
+            <label for="">24h High : </label>
+            <span id="stock-changes-h-UsdtUsdc">--</span>
+            <br>
+            <label for="">24h Low : </label>
+            <span id="stock-changes-l-UsdtUsdc">--</span>
+        </div>
+        <div id="stock-price-BusdUsdt">---</div>
+        <div id="stock-price-UsdtBidr">---</div>
+        <div id="stock-price-EthUsdt">---</div>
+        <div id="stock-price-BtcUsdt">---</div>
+        <hr>
+        <div id="stock-ticker-BtcUsdt">---</div>
+        <div id="chart"></div>
+        <h2>settings</h2>
+        <div id="settings">
+            <input type="checkbox" name="" id=""> RSI
+            <input type="text" name="rsi_length" id="rsi_length" placeholder="14"> Over Bought
+            <input type="text" name="rsi_overbought" id="rsi_overbought" placeholder="70"> Over Sold
+            <input type="text" name="rsi_oversold" id="rsi_oversold" placeholder="30">
+        </div> -->
+    </div>
+
+    <!-- <script src="{% static 'js/app.js' %}"></script> -->
+    <!-- <script src="{% static 'js/chart.js' %}"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+
+</html>
