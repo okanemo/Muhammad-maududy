@@ -19,11 +19,24 @@ let tickerSocket = () => {
     ];
     return (stream.join(""));
 };
+
+let klineSocket = () => {
+    let stream = [
+        'usdcusdt@kline_15m/',
+        'busdusdt@kline_15m/',
+        'usdtbidr@kline_15m/',
+        'ethusdt@kline_15m/',
+        'btcusdt@kline_15m',
+    ];
+    return (stream.join(""));
+};
 let vtradeSocket = tradeSocket();
 let vtickerSocket = tickerSocket();
+let vklineSocket = klineSocket();
 // WEB SOCKET
 let wsTrade = new WebSocket('wss://stream.binance.com:9443/stream?streams='.concat(vtradeSocket));
 let wsTicker = new WebSocket('wss://stream.binance.com:9443/stream?streams='.concat(vtickerSocket));
+let wsKline = new WebSocket('wss://stream.binance.com:9443/stream?streams='.concat(vklineSocket));
 // -------
 
 // ID ELEMENT
@@ -84,6 +97,27 @@ var formatter = new Intl.NumberFormat('en-US', {
     //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
 });
 
+wsKline.onmessage = (event) => {
+    let message = JSON.parse(event.data);
+    // console.log(message.k);
+
+    let candlestick = message.data.k;
+    if (message.data.s == "BTCUSDT") {
+        // console.log(message.data.k.o);
+        candleSeries.update({
+            close: candlestick.c,
+            high: candlestick.h,
+            low: candlestick.l,
+            open: candlestick.o,
+            time: candlestick.t / 1000,
+            // time: Date.now(),
+        });
+    }
+
+
+
+}
+
 wsTicker.onmessage = (event) => {
     let tickerData = JSON.parse(event.data);
     let ticker_p = parseFloat(tickerData.data.p).toFixed(4);
@@ -92,6 +126,10 @@ wsTicker.onmessage = (event) => {
     let ticker_l = parseFloat(tickerData.data.l).toFixed(4);
     let ticker_v = formatter.format(tickerData.data.v);
     let ticker_q = formatter.format(tickerData.data.q);
+
+    // console.log(tickerData);
+    // candleSeries.update()
+
     if (tickerData.data.s == "USDCUSDT") {
         tickerCpUsdcUsdt.innerText = ticker_p;
         tickerCpUsdcUsdt.style.color = !lastPrice || lastPrice === tickerCpUsdcUsdt ? 'black' : tickerCpUsdcUsdt > lastPrice ? 'green' : 'red';
@@ -213,8 +251,8 @@ wsTrade.onmessage = (event) => {
     }
 
 };
-
-var chart = LightweightCharts.createChart(document.getElementById('chart'), {
+//chart-UsdcUsdt chart-BusdUsdt chart-UsdtBidr chart-ethusdt chart-BtcUsdt
+var chart = LightweightCharts.createChart(document.getElementById("chart-UsdcUsdt"), {
     width: 1000,
     height: 300,
     layout: {
@@ -248,11 +286,9 @@ var candleSeries = chart.addCandlestickSeries({
     wickDownColor: 'rgba(255, 144, 0, 1)',
     wickUpColor: 'rgba(255, 144, 0, 1)',
 });
-
-candleSeries.setData([{
-    time: '2018-10-19',
-    open: 180.34,
-    high: 180.99,
-    low: 178.57,
-    close: 179.85
-}, ]);
+// alert(window.location.href);
+fetch('http://127.0.0.1:5000/history')
+    .then((r) => r.json())
+    .then((response) => {
+        candleSeries.setData(response);
+    });
