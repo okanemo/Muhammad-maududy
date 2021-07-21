@@ -19,4 +19,4 @@ Getting Started
 2. Run Program
 `cd calculator_base` -> `manage.py runserver`
 
-done, enjoy the program
+done, enjoy the programs
