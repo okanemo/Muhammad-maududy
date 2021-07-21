@@ -17,6 +17,8 @@ Getting Started
 `Env\Scripts\activate`
 
 2. Run Program
-`cd calculator_base` -> `manage.py runserver`
+`cd calculator_base/calculator` -> `flask run`
+
+3. If it's return `500 Internal Error` please use VPN
 
 done, enjoy the program
