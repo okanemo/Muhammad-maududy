@@ -252,7 +252,7 @@ wsTrade.onmessage = (event) => {
 
 };
 //chart-UsdcUsdt chart-BusdUsdt chart-UsdtBidr chart-ethusdt chart-BtcUsdt
-var chart = LightweightCharts.createChart(document.getElementById("chart-UsdcUsdt"), {
+var chart = LightweightCharts.createChart(document.getElementById("chart"), {
     width: 1000,
     height: 300,
     layout: {
@@ -287,8 +287,80 @@ var candleSeries = chart.addCandlestickSeries({
     wickUpColor: 'rgba(255, 144, 0, 1)',
 });
 // alert(window.location.href);
-fetch('http://127.0.0.1:5000/history')
-    .then((r) => r.json())
-    .then((response) => {
-        candleSeries.setData(response);
-    });
+// if (window.location.href === "http://127.0.0.1:5000/") {
+//     fetch('http://127.0.0.1:5000/render_usdcusdt')
+//         .then((r) => r.json())
+//         .then((response) => {
+//             candleSeries.setData(response);
+//         });
+// }
+// if (window.location.href === "http://127.0.0.1:5000/chart-busdusdt") {
+//     fetch('http://127.0.0.1:5000/render_busdusdt')
+//         .then((r) => r.json())
+//         .then((response) => {
+//             candleSeries.setData(response);
+//         });
+
+// }
+// if (window.location.href === "http://127.0.0.1:5000/chart-usdtbidr") {
+//     fetch('http://127.0.0.1:5000/render_usdtbidr')
+//         .then((r) => r.json())
+//         .then((response) => {
+//             candleSeries.setData(response);
+//         });
+
+// }
+// if (window.location.href === "http://127.0.0.1:5000/chart-ethusdt") {
+//     fetch('http://127.0.0.1:5000/render_ethusdt')
+//         .then((r) => r.json())
+//         .then((response) => {
+//             candleSeries.setData(response);
+//         });
+
+// }
+// if (window.location.href === "http://127.0.0.1:5000/chart-btcusdt") {
+//     fetch('http://127.0.0.1:5000/render_btcusdt')
+//         .then((r) => r.json())
+//         .then((response) => {
+//             candleSeries.setData(response);
+//         });
+
+// }
+
+switch (window.location.href) {
+    case "http://127.0.0.1:5000/":
+        fetch('http://127.0.0.1:5000/render_usdcusdt')
+            .then((r) => r.json())
+            .then((response) => {
+                candleSeries.setData(response);
+            });
+        break;
+    case "http://127.0.0.1:5000/chart-busdusdt":
+        fetch('http://127.0.0.1:5000/render_busdusdt')
+            .then((r) => r.json())
+            .then((response) => {
+                candleSeries.setData(response);
+            });
+        break;
+    case "http://127.0.0.1:5000/chart-usdtbidr":
+        fetch('http://127.0.0.1:5000/render_usdtbidr')
+            .then((r) => r.json())
+            .then((response) => {
+                candleSeries.setData(response);
+            });
+        break;
+    case "http://127.0.0.1:5000/chart-ethusdt":
+        fetch('http://127.0.0.1:5000/render_ethusdt')
+            .then((r) => r.json())
+            .then((response) => {
+                candleSeries.setData(response);
+            });
+        break;
+    case "http://127.0.0.1:5000/chart-btcusdt":
+        fetch('http://127.0.0.1:5000/render_btcusdt')
+            .then((r) => r.json())
+            .then((response) => {
+                candleSeries.setData(response);
+            });
+        break;
+}

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
-    <title>USDTUSDC</title>
+    <title>{{tittle}}</title>
 </head>
 
 <body>
@@ -95,9 +95,9 @@
             <li class="nav-item"><a class="nav-link" href="chart-ethusdt">ETH/USDT</a></li>
             <li class="nav-item"><a class="nav-link" href="chart-btcusdt">BTC/USDT</a></li>
         </ul>
-        <h3 class="mb-2">USDC/USDT Graphic </h3>
-        <a class="btn btn-primary" href="download_usdcusdt">download csv</a>
-        <!-- <a class="btn btn-primary" href="download_busdusdt">download csv for BUSD/USDT</a> -->
+        <h3 class="mb-2">ETH/USDT Graphic </h3>
+        <!-- <a class="btn btn-primary" href="download_usdcusdt">download csv</a> -->
+        <a class="btn btn-primary" href="download_ethusdt">download csv</a>
         <div class="mb-2" id="chart"></div>
     </div>
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
