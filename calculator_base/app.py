@@ -190,7 +190,7 @@ def download_busdusdt():
 
     csvfile.close()
 
-    return redirect('/')
+    return redirect('/chart-busdusdt')
 
 @app.route('/download_usdtbidr')
 def download_usdtbidr():
@@ -220,7 +220,7 @@ def download_usdtbidr():
 
     csvfile.close()
 
-    return redirect('/')
+    return redirect('/chart-usdtbidr')
 
 @app.route('/download_ethusdt')
 def download_ethusdt():
@@ -250,7 +250,7 @@ def download_ethusdt():
 
     csvfile.close()
 
-    return redirect('/')
+    return redirect('/chart-ethusdt')
 
 @app.route('/download_btcusdt')
 def download_btcusdt():
@@ -280,5 +280,5 @@ def download_btcusdt():
 
     csvfile.close()
 
-    return redirect('/')
+    return redirect('/chart-btcusdt')
     
