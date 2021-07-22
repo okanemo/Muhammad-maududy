@@ -39,6 +39,17 @@ let wsTicker = new WebSocket('wss://stream.binance.com:9443/stream?streams='.con
 let wsKline = new WebSocket('wss://stream.binance.com:9443/stream?streams='.concat(vklineSocket));
 // -------
 
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0');
+var yyyy = today.getFullYear();
+today = yyyy + '-' + mm + '-' + dd;
+// console.log(today);
+
+
+// console.log(url);
+
+
 // ID ELEMENT
 //--- Trade/Price only
 let UsdcUsdt = document.getElementById('stock-price-UsdcUsdt');
@@ -96,27 +107,6 @@ var formatter = new Intl.NumberFormat('en-US', {
     minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
     //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
 });
-
-wsKline.onmessage = (event) => {
-    let message = JSON.parse(event.data);
-    // console.log(message.k);
-
-    let candlestick = message.data.k;
-    if (message.data.s == "BTCUSDT") {
-        // console.log(message.data.k.o);
-        candleSeries.update({
-            close: candlestick.c,
-            high: candlestick.h,
-            low: candlestick.l,
-            open: candlestick.o,
-            time: candlestick.t / 1000,
-            // time: Date.now(),
-        });
-    }
-
-
-
-}
 
 wsTicker.onmessage = (event) => {
     let tickerData = JSON.parse(event.data);
@@ -286,46 +276,6 @@ var candleSeries = chart.addCandlestickSeries({
     wickDownColor: 'rgba(255, 144, 0, 1)',
     wickUpColor: 'rgba(255, 144, 0, 1)',
 });
-// alert(window.location.href);
-// if (window.location.href === "http://127.0.0.1:5000/") {
-//     fetch('http://127.0.0.1:5000/render_usdcusdt')
-//         .then((r) => r.json())
-//         .then((response) => {
-//             candleSeries.setData(response);
-//         });
-// }
-// if (window.location.href === "http://127.0.0.1:5000/chart-busdusdt") {
-//     fetch('http://127.0.0.1:5000/render_busdusdt')
-//         .then((r) => r.json())
-//         .then((response) => {
-//             candleSeries.setData(response);
-//         });
-
-// }
-// if (window.location.href === "http://127.0.0.1:5000/chart-usdtbidr") {
-//     fetch('http://127.0.0.1:5000/render_usdtbidr')
-//         .then((r) => r.json())
-//         .then((response) => {
-//             candleSeries.setData(response);
-//         });
-
-// }
-// if (window.location.href === "http://127.0.0.1:5000/chart-ethusdt") {
-//     fetch('http://127.0.0.1:5000/render_ethusdt')
-//         .then((r) => r.json())
-//         .then((response) => {
-//             candleSeries.setData(response);
-//         });
-
-// }
-// if (window.location.href === "http://127.0.0.1:5000/chart-btcusdt") {
-//     fetch('http://127.0.0.1:5000/render_btcusdt')
-//         .then((r) => r.json())
-//         .then((response) => {
-//             candleSeries.setData(response);
-//         });
-
-// }
 
 switch (window.location.href) {
     case "http://127.0.0.1:5000/":
@@ -364,3 +314,39 @@ switch (window.location.href) {
             });
         break;
 }
+
+var chartIdr = LightweightCharts.createChart(document.getElementById('chartIdr'), {
+    width: 1000,
+    height: 300,
+    rightPriceScale: {
+        visible: false,
+    },
+    leftPriceScale: {
+        visible: true,
+    },
+});
+
+var areaSeries = chartIdr.addAreaSeries({
+    topColor: 'rgba(251, 192, 45, 0.56)',
+    bottomColor: 'rgba(251, 192, 45, 0.04)',
+    lineColor: 'rgba(251, 192, 45, 1)',
+    lineWidth: 2,
+});
+
+// url = fetch("https://api.exchangerate.host/timeseries?start_date=2020-5-22&end_date=" + today + "/IDR/")
+//     .then(response => response.json())
+//     .then(data =>
+
+//         console.log(data["rates"]);
+//         areaSeries.setData([
+//             { time: data["rates"], value: 154.05 },
+//         ])
+
+//     );
+
+fetch('http://127.0.0.1:5000/render_idr')
+    .then((b) => b.json())
+    .then((response) => {
+        // console.log(response);
+        areaSeries.setData(response);
+    });

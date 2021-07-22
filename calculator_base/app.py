@@ -1,4 +1,4 @@
-import config, csv, os, time
+import config, csv, os, time, requests, json, itertools
 from flask import Flask, render_template, jsonify, redirect
 from binance.client import Client
 
@@ -9,7 +9,8 @@ client = Client(config.API_KEY, config.API_SECRET)
 # render view
 @app.route("/")
 def index():
-    return render_template('index.html')
+    page = "/"
+    return render_template('index.html', my_page = page)
     # info = client.get_account()
     # tittle = 'Live View'
     # permissions = info['permissions']
@@ -54,6 +55,7 @@ def render_usdcusdt():
         processed_candlestick.append(candlestick)
 
     return jsonify(processed_candlestick)
+    # return jsonify(candlestick)
 
 @app.route("/render_busdusdt")
 def render_busdusdt():
@@ -129,6 +131,30 @@ def render_btcusdt():
 
         processed_candlestick.append(candlestick)
 
+    return jsonify(processed_candlestick)
+# test ---
+@app.route("/render_idr")
+def render_idr():
+
+    dateYear = time.strftime("%Y/")
+    dateMonth = time.strftime("%m/")
+    dateDay = time.strftime("%d/")
+    dateNow = time.strftime("%Y-%m-%d")
+    
+    url = "https://api.exchangerate.host/timeseries?start_date=2020-5-22&end_date="+dateNow+"/IDR/"
+    response = requests.get(url)
+    candlestick = response.json()
+    ctime = candlestick['rates']
+
+    processed_candlestick = []
+    # processed_candlestick2 = []
+    for data in ctime:
+        candlestick = {
+            "time": data,
+            "value": 1000000,
+        }
+        processed_candlestick.append(candlestick)
+        
     return jsonify(processed_candlestick)
 
 # download csv link 
